@@ -62,7 +62,48 @@ footer {
     padding: 10px 0;
     margin-top: auto;  /* Push footer to the bottom of the screen */
 }
+.landing-page {
+    position: relative;
+    background-image: url("myapp/media/background.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Make the background cover the entire viewport height */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
+.landing-page h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: if you want a background overlay to improve text visibility */
+.landing-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1; /* Ensure it's above the background but behind text */
+}
 /*-------CARDS-------*/
 .car-list {
     display: flex;
@@ -90,7 +131,9 @@ footer {
 }
 
 .car img {
-    max-width: 100%;
+    width: 250px; /* Or any specific width you want */
+    height: 150px; /* Adjust to the desired height */
+    object-fit: cover; /* Ensures the image fills the area and keeps its aspect ratio */
     border-radius: 4px;
     margin-bottom: 15px; /* Space between image and text */
 }

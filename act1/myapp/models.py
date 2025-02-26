@@ -8,6 +8,7 @@ class Car(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     photo = models.ImageField(upload_to='car_photos/', null=True, blank=True)
+    km = models.IntegerField(help_text="Kilometers driven", default=0)
 
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year})"

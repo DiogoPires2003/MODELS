@@ -15,4 +15,4 @@ def sales(request):
     sales = Sale.objects.all()
     return render(request, 'sales.html', {'sales': sales})
 
-# Contact page view (basic)
+

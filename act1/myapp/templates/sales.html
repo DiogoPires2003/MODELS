@@ -3,17 +3,17 @@
 {% block title %}Sales - Dealership{% endblock %}
 
 {% block content %}
-    <h2>Sales</h2>
+    <h2 style="color: white">Sales</h2>
     <div class="sale-list">
         {% for sale in sales %}
-            <div class="sale">
+            <div class="car">
                 {% if sale.car_photo %}
                     <img src="{{ sale.car_photo.url }}" alt="Sale photo for {{ sale.car.brand }} {{ sale.car.model }}">
                 {% else %}
                     <p>No photo available</p>
                 {% endif %}
-                <h3>Sale of {{ sale.car.brand }} {{ sale.car.model }}</h3>
-                <p>Date: {{ sale.sale_date }}</p>
+                <h3>{{ sale.car.brand }} {{ sale.car.model }}</h3>
+                <p>Sold: {{ sale.sale_date }}</p>
                 <p>Total Price: ${{ sale.total_price }}</p>
             </div>
         {% endfor %}

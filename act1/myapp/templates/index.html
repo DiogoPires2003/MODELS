@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - Car Dealership{% endblock %}
+{% block title %}Landing - Dealership{% endblock %}
 
 {% block content %}
-    <h2>Welcome to Our Car Dealership</h2>
-    <p>Browse our available cars and find the perfect vehicle for you!</p>
-    <div class="buttons">
-        <a href="{% url 'cars' %}" class="btn">View Cars</a>
-        <a href="{% url 'sales' %}" class="btn">View Sales</a>
+    <div class="landing-page">
+        <div>
+            <h2>Find Your Perfect Car Today</h2>
+            <p>Browse through our wide selection of available cars and drive away with the perfect vehicle!</p>
+            <a href="/available-cars" class="button">See Available Cars</a>
+        </div>
     </div>
 {% endblock %}
