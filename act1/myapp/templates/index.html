@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Car Dealership{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Our Car Dealership</h2>
+    <p>Browse our available cars and find the perfect vehicle for you!</p>
+    <div class="buttons">
+        <a href="{% url 'cars' %}" class="btn">View Cars</a>
+        <a href="{% url 'sales' %}" class="btn">View Sales</a>
+    </div>
+{% endblock %}

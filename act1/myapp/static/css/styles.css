@@ -1,0 +1,161 @@
+html, body {
+    height: 100%;  /* Ensure the body and html take up the full viewport height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #333;
+    opacity: 1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #333 50px), repeating-linear-gradient(#ffffff55, #ffffff);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+}
+
+main {
+    flex-grow: 1; /* Make sure the main content takes available space */
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.intro {
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;  /* Push footer to the bottom of the screen */
+}
+
+/*-------CARDS-------*/
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.car {
+    background: linear-gradient(to bottom, #ffffff 0%, #333 100%);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.car:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.car img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.car h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.car p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: white;
+
+}
+
+.car p:last-child {
+    font-weight: bold;
+    color: white;
+}
+
+/*-------sale-------*/
+.sale-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.sale {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sale:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.sale img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.sale h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sale p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.sale p:last-child {
+    font-weight: bold;
+    color: #333;
+}
