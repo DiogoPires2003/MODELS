@@ -20,32 +20,32 @@ This project is a web application for a car dealership, built with Django and Po
     docker-compose up --build
     ```
 
-3. **Apply database migrations**:
+3. **Restore the Database**
+
+    If you have a database dump (`backup.sql`), follow these steps to restore the database:
+
+    1. **Copy the `backup.sql` file** into the `db` container:
+        ```sh
+        docker cp backup.sql $(docker-compose ps -q db):/backup.sql
+        ```
+
+    2. **Import the database**:
+        ```sh
+        docker-compose exec db psql -U django_user -d django_db -f /backup.sql
+        ```
+
+4. **Apply database migrations**:
     ```sh
     docker-compose exec web python manage.py migrate
     ```
 
-4. **Load initial data (if any)**:
+5. **Load initial data (if any)**:
     ```sh
     docker-compose exec web python manage.py loaddata initial_data.json
     ```
 
-5. **Access the application**:
+6. **Access the application**:
     Open a web browser and go to `http://localhost:8000`.
-
-## Restore the Database
-
-If you have a database dump (`backup.sql`), follow these steps to restore the database:
-
-1. **Copy the `backup.sql` file** into the `db` container:
-    ```sh
-    docker cp backup.sql $(docker-compose ps -q db):/backup.sql
-    ```
-
-2. **Import the database**:
-    ```sh
-    docker-compose exec db psql -U django_user -d django_db -f /backup.sql
-    ```
 
 ## Project Structure
 
