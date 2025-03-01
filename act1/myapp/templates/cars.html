@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Cars - Dealership{% endblock %}
+{% block title %}Cars{% endblock %}
 
 {% block content %}
     <h2 style="color: white">Available cars</h2>
     <div class="car-list">
         {% for car in cars %}
             {% if car.available %}
-            <div class="car">
-                {% if car.photo %}
-                    <img src="{{ car.photo.url }}" alt="{{ car.brand }} {{ car.model }}">
-                {% else %}
-                    <p>No image available</p>
-                {% endif %}
-                <h3>{{ car.brand }} {{ car.model }}</h3>
-                <p>Year: {{ car.year }}</p>
-                <p>Price: ${{ car.price }}</p>
-                <p>Kilometers: {{ car.km }} km</p>
-            </div>
+                <div class="card">
+                    {% if car.photo %}
+                        <img src="{{ car.photo.url }}" alt="{{ car.brand }} {{ car.model }}" class="card__image">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                    <div class="card__content">
+                        <p class="card__title">{{ car.brand }} </p>
+                        <p class="card__title">{{ car.model }}</p>
+                        <p class="card__description">Year: {{ car.year }}</p>
+                        <p class="card__description">Price: ${{ car.price }}</p>
+                        <p class="card__description">KM: {{car.km }}</p>
+                    </div>
+                </div>
             {% endif %}
         {% endfor %}
     </div>

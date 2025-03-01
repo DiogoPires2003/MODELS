@@ -1,9 +1,7 @@
 from django.shortcuts import render,redirect
-from myapp.models import Car, Sale
-from myapp.forms import CarForm
+from myapp.models import Car, Sale, Customer
+from myapp.forms import CarForm, SaleForm
 # Home page view
-def home(request):
-    return render(request, 'index.html')
 
 # View all cars
 def cars(request):
@@ -26,3 +24,19 @@ def add_car(request):
         form = CarForm()
 
     return render(request, 'addCar.html', {'form': form})
+
+
+def sell_car(request):
+    if request.method == 'POST':
+        form = SaleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Sold cars')  # Redirect to the sales page after successful submission
+    else:
+        form = SaleForm()
+
+    return render(request, 'sellCar.html', {'form': form})
+
+def customers(request):
+    customers = Customer.objects.all()
+    return render(request, 'customers.html', {'customers': customers})

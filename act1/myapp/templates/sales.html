@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Sold Cars - Dealership{% endblock %}
+{% block title %}Sales{% endblock %}
 
 {% block content %}
     <h2 style="color: white">Sold Cars</h2>
-    <div class="sale-list">
+    <div class="car-list">
         {% for sale in sales %}
-            <div class="car">
-                {% if sale.car_photo %}
-                    <img src="{{ sale.car_photo.url }}" alt="Sale photo for {{ sale.car.brand }} {{ sale.car.model }}">
+            <div class="card">
+                {% if sale.car.photo %}
+                    <img src="{{ sale.car.photo.url }}" alt="{{ sale.car.brand }} {{ sale.car.model }}" class="card__image">
                 {% else %}
-                    <p>No photo available</p>
+                    <p>No image available</p>
                 {% endif %}
-                <h3>{{ sale.car.brand }} {{ sale.car.model }}</h3>
-                <p>Sold: {{ sale.sale_date }}</p>
-                <p>Total Price: ${{ sale.total_price }}</p>
+                <div class="card__content">
+                    <p class="card__title">{{ sale.car.brand }} </p>
+                    <p class="card__title">{{ sale.car.model }}</p>
+                    <p class="card__description">Year: {{ sale.car.year }}</p>
+                    <p class="card__description">Price: ${{ sale.total_price }}</p>
+                    <p class="card__description">KM: {{ sale.car.km }}</p>
+                    <p class="card__description">Sold to: {{ sale.customer.first_name }} {{ sale.customer.last_name }}</p>
+                    <p class="card__description">Sale Date: {{ sale.sale_date }}</p>
+                </div>
             </div>
         {% endfor %}
     </div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Sell Car{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Sell a Car</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <button type="submit">Sell Car</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

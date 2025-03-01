@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Customers{% endblock %}
+
+{% block content %}
+    <h2>Customers</h2>
+    <div class="customer-list">
+        {% for customer in customers %}
+            <div class="customer-card">
+                <div class="customer-card-content">
+                    <h3 class="customer-card-title">{{ customer.first_name }} {{ customer.last_name }}</h3>
+                    <p class="customer-card-para">Email: {{ customer.email }}</p>
+                    <p class="customer-card-para">Phone: {{ customer.phone }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

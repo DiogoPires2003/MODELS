@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Car Dealership{% endblock %}</title>
+    <title>{% block title %}Dealership Manager{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Dealership car management</h1>
+        <h1>Dealership manager</h1>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'cars' %}">Available Cars</a></li>
                 <li><a href="{% url 'Sold cars' %}">Sold Cars</a></li>
-                <li><a href="{% url 'add_car' %}">Add Car</a></li>
+                <li><a href="{% url 'sell_car' %}">Sell Car</a></li>
+                <li><a href="{% url 'customers' %}">Customers</a></li>
             </ul>
         </nav>
     </header>
@@ -27,7 +27,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Car Dealership</p>
+        <p>&copy; 2025 Dealership manager</p>
     </footer>
 </body>
 </html>
