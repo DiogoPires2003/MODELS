@@ -1,5 +1,5 @@
 from django.urls import path
-from myapp.views import home, cars, sales
+from myapp.views import home, cars, sales, add_car
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,7 +9,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('cars/', cars, name='cars'),
     path('sales/', sales, name='Sold cars'),
-
+    path('add_car/', add_car, name='add_car'),
 
 ]
 if settings.DEBUG:
