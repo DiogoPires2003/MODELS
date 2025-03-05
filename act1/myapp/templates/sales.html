@@ -3,25 +3,37 @@
 {% block title %}Sales{% endblock %}
 
 {% block content %}
-    <h2 style="color: white">Sold Cars</h2>
-    <div class="car-list">
+<div class="container mt-4">
+    <h2 style="color: white;">Sold Cars</h2>
+    <div class="row">
         {% for sale in sales %}
-            <div class="card">
-                {% if sale.car.photo %}
-                    <img src="{{ sale.car.photo.url }}" alt="{{ sale.car.brand }} {{ sale.car.model }}" class="card__image">
-                {% else %}
-                    <p>No image available</p>
-                {% endif %}
-                <div class="card__content">
-                    <p class="card__title">{{ sale.car.brand }} </p>
-                    <p class="card__title">{{ sale.car.model }}</p>
-                    <p class="card__description">Year: {{ sale.car.year }}</p>
-                    <p class="card__description">Price: ${{ sale.total_price }}</p>
-                    <p class="card__description">KM: {{ sale.car.km }}</p>
-                    <p class="card__description">Sold to: {{ sale.customer.first_name }} {{ sale.customer.last_name }}</p>
-                    <p class="card__description">Sale Date: {{ sale.sale_date }}</p>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 d-flex flex-column">
+                    {% if sale.car.photo %}
+                        <img src="{{ sale.car.photo.url }}" alt="{{ sale.car.brand }} {{ sale.car.model }}" class="card-img-top fixed-img">
+                    {% else %}
+                        <div class="text-center p-3">No image available</div>
+                    {% endif %}
+                    <div class="card-body flex-grow-1">
+                        <h5 class="card-title">{{ sale.car.brand }} {{ sale.car.model }}</h5>
+                        <p class="card-text">Year: {{ sale.car.year }}</p>
+                        <p class="card-text">Price: ${{ sale.total_price }}</p>
+                        <p class="card-text">KM: {{ sale.car.km }}</p>
+                        <p class="card-text">Sold to: {{ sale.customer.first_name }} {{ sale.customer.last_name }}</p>
+                        <p class="card-text">Sale Date: {{ sale.sale_date }}</p>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+</div>
+
+<style>
+    /* Set a fixed height for images while maintaining aspect ratio */
+    .fixed-img {
+        width: 100%;
+        height: 200px; /* Adjust as needed */
+        object-fit: cover; /* Ensures the image fills the area without distortion */
+    }
+</style>
 {% endblock %}

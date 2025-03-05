@@ -3,25 +3,38 @@
 {% block title %}Cars{% endblock %}
 
 {% block content %}
-    <h2 style="color: white">Available cars</h2>
-    <div class="car-list">
+<div class="container mt-4">
+    <h2 style="color: white;">Available Cars</h2>
+    <div class="row">
         {% for car in cars %}
             {% if car.available %}
-                <div class="card">
-                    {% if car.photo %}
-                        <img src="{{ car.photo.url }}" alt="{{ car.brand }} {{ car.model }}" class="card__image">
-                    {% else %}
-                        <p>No image available</p>
-                    {% endif %}
-                    <div class="card__content">
-                        <p class="card__title">{{ car.brand }} </p>
-                        <p class="card__title">{{ car.model }}</p>
-                        <p class="card__description">Year: {{ car.year }}</p>
-                        <p class="card__description">Price: ${{ car.price }}</p>
-                        <p class="card__description">KM: {{car.km }}</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 d-flex flex-column">
+                        {% if car.photo %}
+                            <img src="{{ car.photo.url }}" alt="{{ car.brand }} {{ car.model }}" class="card-img-top fixed-img">
+                        {% else %}
+                            <div class="text-center p-3">No image available</div>
+                        {% endif %}
+                        <div class="card-body flex-grow-1">
+                            <h5 class="card-title">{{ car.brand }}</h5>
+                            <p class="card-text">{{ car.model }}</p>
+                            <p class="card-text">Year: {{ car.year }}</p>
+                            <p class="card-text">Price: ${{ car.price }}</p>
+                            <p class="card-text">KM: {{ car.km }}</p>
+                        </div>
                     </div>
                 </div>
             {% endif %}
         {% endfor %}
     </div>
+</div>
+
+<style>
+    /* Set a fixed height for images while maintaining aspect ratio */
+    .fixed-img {
+        width: 100%;
+        height: 200px; /* Adjust as needed */
+        object-fit: cover; /* Ensures the image fills the area without distortion */
+    }
+</style>
 {% endblock %}

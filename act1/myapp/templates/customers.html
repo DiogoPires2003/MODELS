@@ -3,16 +3,20 @@
 {% block title %}Customers{% endblock %}
 
 {% block content %}
-    <h2>Customers</h2>
-    <div class="customer-list">
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for customer in customers %}
-            <div class="customer-card">
-                <div class="customer-card-content">
-                    <h3 class="customer-card-title">{{ customer.first_name }} {{ customer.last_name }}</h3>
-                    <p class="customer-card-para">Email: {{ customer.email }}</p>
-                    <p class="customer-card-para">Phone: {{ customer.phone }}</p>
+            <div class="col">
+                <!-- Customer Card -->
+                <div class="card shadow-sm border-light rounded h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-3">{{ customer.first_name }} {{ customer.last_name }}</h5>
+                        <p class="card-text"><strong>Email:</strong> {{ customer.email }}</p>
+                        <p class="card-text"><strong>Phone:</strong> {{ customer.phone }}</p>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}

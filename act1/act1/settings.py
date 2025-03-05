@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+
 # settings.py
 
-#media files
+# media files
 MEDIA_ROOT = 'myapp/media'
 
 MEDIA_URL = '/media/'
@@ -61,8 +62,10 @@ ROOT_URLCONF = 'act1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'myapp/templates'],  # Afegeixo la carpeta templates del meu projecte
-        'APP_DIRS': True,
+        'DIRS': [
+            BASE_DIR / 'myapp/templates',  # Add this if you have a global templates folder
+        ],
+        'APP_DIRS': True,  # This ensures that templates inside each app are found
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
