@@ -1,4 +1,4 @@
-# Car Dealership Project
+# Car Dealership Mangement App Project
 
 This project is a web application for a car dealership, built with Django and PostgreSQL, and containerized using Docker.
 
